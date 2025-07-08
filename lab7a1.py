@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# Student ID: [seneca_id]
+# Student ID: sdaweng
+
 from lab7a import *
 t1 = Time(8,0,0)
 t2 = Time(8,55,0)
