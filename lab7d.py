@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Student ID: [seneca_id] 
+# Student ID: sdaweng 
 class Time:
     """Simple object type for time of the day.
         data attributes: hour, minute, second
@@ -28,7 +28,7 @@ class Time:
         time_seconds = self.time_to_sec()
         nt = sec_to_time(time_seconds + seconds)
         self.hour, self.minute, self.second = nt.hour, nt.minute, nt.second 
-        return None
+        return
 
     def time_to_sec(self):
         '''convert a time object to a single integer representing the 
@@ -53,3 +53,9 @@ def sec_to_time(seconds):
     minutes, time.second = divmod(seconds, 60)
     time.hour, time.minute = divmod(minutes, 60)
     return time
+
+
+if __name__ == "__main__":
+    t1 = Time(9,50,0)
+    t1.format_time()
+    print(t1.change_time(23))
