@@ -44,23 +44,21 @@ def sum_times(t1, t2):
 #change_time(time1,seconds)
 
 def change_time(time, seconds):
-    
+    # if time.second is not less than 0
     time.second += seconds
-    if valid_time(time) != True:
-
-        #When second given is above 60
+    if valid_time(time) != True: #checks time.second attribute if it is less than 0
         while time.second >= 60:
             time.second -= 60
             time.minute += 1
-        #When second given is below 0
+
         while time.second < 0:
             time.second += 60
             time.minute -= 1
-        #When minute given is above 60 
+
         while time.minute >= 60:
             time.minute -= 60
             time.hour += 1
-        #When minute given is below 0
+        
         while time.minute < 0:
             time.minute += 60
             time.hour -= 1
@@ -78,12 +76,31 @@ def valid_time(t):
         return False
     return True
 
+# Seconds in a day 86400 (24 x 60 x 60)
+def time_to_sec(time):
+    '''convert a time object to a single integer representing the number of seconds from mid-night'''
+    minutes = time.hour * 60 + time.minute
+    seconds = minutes * 60 + time.second
+    return seconds
+
+
+def sec_to_time(seconds):   
+    '''convert a given number of seconds to a time object in hour,minute,second format'''
+    time = Time()
+    minutes, time.second = divmod(seconds, 60)
+    time.hour, time.minute = divmod(minutes,60)
+    return time
+
+
+
+
+
+
 if __name__ == "__main__":
     t1 = Time(9,50,0)
-    seconds = -1800
-
-    ft = format_time
-    change_time(t1, seconds)
-    print(format_time(t1))
-
+    sec_t1 = time_to_sec(t1)
+    t1_sec = sec_to_time(sec_t1)
+    print(format_time(t1_sec))
     
+
+   

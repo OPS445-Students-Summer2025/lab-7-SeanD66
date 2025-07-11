@@ -26,16 +26,12 @@ def sum_times(t1, t2):
     #[ attribute here, and carry over when necessary
     #[
     
-    #if second reaches 60 carry over 1 to minute
-    #t1 second = 38 
-    #t2 second = 40
-    #result = 1:18
-
+    #if second reaches 60, carry over 1 to minute
     if sum.second >= 60:
         sum.second = sum.second % 60
         sum.minute += 1
     
-    
+    #is minute reaches 60, carry over 1 to hour 
     if sum.minute >= 60:
         sum.minute = sum.minute % 60
         sum.hour += 1
